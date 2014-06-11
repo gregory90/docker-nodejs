@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.9.10
+FROM gregory90/base:latest
 
 # Set correct environment variables.
 ENV HOME /root
