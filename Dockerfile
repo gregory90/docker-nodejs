@@ -1,14 +1,5 @@
 FROM gregory90/base:latest
 
-# Set correct environment variables.
-ENV HOME /root
-
-# Remove ssh
-RUN rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh
-
-# Use baseimage-docker's init system.
-CMD ["/sbin/my_init"]
-
 # Install Node.js
 RUN \
   mkdir -p /code && \
@@ -25,10 +16,6 @@ RUN \
   cd /tmp && \
   rm -rf /tmp/node-v* && \
   echo '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.bash_profile
-
-RUN mkdir /etc/service/node
-ADD node.sh /etc/service/node/run
-RUN chmod +x /etc/service/node/run
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
