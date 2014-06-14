@@ -4,7 +4,7 @@ FROM gregory90/base:latest
 RUN \
   mkdir -p /code && \
   DEBIAN_FRONTEND=noninteractive apt-get update && \
-  DEBIAN_FRONTEND=noninteractive apt-get install -y wget make g++ build-essential python && \
+  DEBIAN_FRONTEND=noninteractive apt-get install -y make g++ build-essential python && \
   cd /tmp && \
   wget http://nodejs.org/dist/node-latest.tar.gz && \
   tar xvzf node-latest.tar.gz && \
