@@ -1,14 +1,16 @@
 FROM gregory90/base:latest
 
+ENV NODE_VERSION 0.10.34
+
 # Install Node.js
 RUN \
   mkdir -p /code && \
   DEBIAN_FRONTEND=noninteractive apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get install -y make g++ build-essential python && \
   cd /tmp && \
-  wget http://nodejs.org/dist/node-latest.tar.gz && \
-  tar xvzf node-latest.tar.gz && \
-  rm -f node-latest.tar.gz && \
+  wget http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz && \
+  tar xvzf node-v$NODE_VERSION-linux-x64.tar.gz && \
+  rm -f node-v$NODE_VERSION-linux-x64.tar.gz && \
   cd node-v* && \
   ./configure && \
   CXX="g++ -Wno-unused-local-typedefs" make && \
