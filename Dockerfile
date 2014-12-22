@@ -9,8 +9,8 @@ RUN \
   DEBIAN_FRONTEND=noninteractive apt-get install -y make g++ build-essential python && \
   cd /tmp && \
   wget http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION.tar.gz && \
-  tar xvzf node-v$NODE_VERSION-linux-x64.tar.gz && \
-  rm -f node-v$NODE_VERSION-linux-x64.tar.gz && \
+  tar xvzf node-v$NODE_VERSION.tar.gz && \
+  rm -f node-v$NODE_VERSION.tar.gz && \
   cd node-v* && \
   ./configure && \
   CXX="g++ -Wno-unused-local-typedefs" make && \
