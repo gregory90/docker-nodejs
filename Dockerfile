@@ -19,5 +19,7 @@ RUN \
   rm -rf /tmp/node-v* && \
   echo '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.bash_profile
 
+RUN npm set progress=false
+
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
