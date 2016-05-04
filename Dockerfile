@@ -1,6 +1,6 @@
 FROM gregory90/base:latest
 
-ENV NODE_VERSION 5.0.0
+ENV NODE_VERSION 6.0.0
 
 # Install Node.js
 RUN \
